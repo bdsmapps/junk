@@ -11,8 +11,7 @@
 		846A690F187EDCA10092754A /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A690E187EDCA10092754A /* BNRItemStore.m */; };
 		847DE00C188577C900F0A06E /* DetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847DE00A188577C900F0A06E /* DetalViewController.m */; };
 		847DE00D188577C900F0A06E /* DetalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847DE00B188577C900F0A06E /* DetalViewController.xib */; };
-		84963B3D1886CC9A0051ED73 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84963B3B1886CC9A0051ED73 /* DateViewController.m */; };
-		84963B3E1886CC9A0051ED73 /* DateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84963B3C1886CC9A0051ED73 /* DateViewController.xib */; };
+		849A9BEF188D78760072A252 /* BNRImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 849A9BEE188D78760072A252 /* BNRImageStore.m */; };
 		849E3840187D944900E20211 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849E383F187D944900E20211 /* Foundation.framework */; };
 		849E3842187D944900E20211 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849E3841187D944900E20211 /* CoreGraphics.framework */; };
 		849E3844187D944900E20211 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849E3843187D944900E20211 /* UIKit.framework */; };
@@ -46,9 +45,8 @@
 		847DE009188577C900F0A06E /* DetalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalViewController.h; sourceTree = "<group>"; };
 		847DE00A188577C900F0A06E /* DetalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalViewController.m; sourceTree = "<group>"; };
 		847DE00B188577C900F0A06E /* DetalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetalViewController.xib; sourceTree = "<group>"; };
-		84963B3A1886CC9A0051ED73 /* DateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
-		84963B3B1886CC9A0051ED73 /* DateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
-		84963B3C1886CC9A0051ED73 /* DateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewController.xib; sourceTree = "<group>"; };
+		849A9BED188D78760072A252 /* BNRImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
+		849A9BEE188D78760072A252 /* BNRImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageStore.m; sourceTree = "<group>"; };
 		849E383C187D944900E20211 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849E383F187D944900E20211 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		849E3841187D944900E20211 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +126,8 @@
 			children = (
 				846A690D187EDCA10092754A /* BNRItemStore.h */,
 				846A690E187EDCA10092754A /* BNRItemStore.m */,
+				849A9BED188D78760072A252 /* BNRImageStore.h */,
+				849A9BEE188D78760072A252 /* BNRImageStore.m */,
 				849E386E187DAA8100E20211 /* ItemsViewController.h */,
 				849E386F187DAA8100E20211 /* ItemsViewController.m */,
 				849E384E187D944900E20211 /* HomepwnerAppDelegate.h */,
@@ -135,9 +135,6 @@
 				847DE009188577C900F0A06E /* DetalViewController.h */,
 				847DE00A188577C900F0A06E /* DetalViewController.m */,
 				847DE00B188577C900F0A06E /* DetalViewController.xib */,
-				84963B3A1886CC9A0051ED73 /* DateViewController.h */,
-				84963B3B1886CC9A0051ED73 /* DateViewController.m */,
-				84963B3C1886CC9A0051ED73 /* DateViewController.xib */,
 				846A6901187ED4910092754A /* BNRItem.h */,
 				846A6902187ED4910092754A /* BNRItem.m */,
 				849E3851187D944900E20211 /* Images.xcassets */,
@@ -251,7 +248,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84963B3E1886CC9A0051ED73 /* DateViewController.xib in Resources */,
 				847DE00D188577C900F0A06E /* DetalViewController.xib in Resources */,
 				849E384A187D944900E20211 /* InfoPlist.strings in Resources */,
 				849E3852187D944900E20211 /* Images.xcassets in Resources */,
@@ -275,11 +271,11 @@
 			files = (
 				846A690F187EDCA10092754A /* BNRItemStore.m in Sources */,
 				849E3870187DAA8100E20211 /* ItemsViewController.m in Sources */,
+				849A9BEF188D78760072A252 /* BNRImageStore.m in Sources */,
 				846A6903187ED4910092754A /* BNRItem.m in Sources */,
 				847DE00C188577C900F0A06E /* DetalViewController.m in Sources */,
 				849E3850187D944900E20211 /* HomepwnerAppDelegate.m in Sources */,
 				849E384C187D944900E20211 /* main.m in Sources */,
-				84963B3D1886CC9A0051ED73 /* DateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

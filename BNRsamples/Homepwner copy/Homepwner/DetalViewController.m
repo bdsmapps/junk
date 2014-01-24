@@ -9,51 +9,11 @@
 #import "DetalViewController.h"
 #import "BNRItem.h"
 #import "BNRImageStore.h"
-#import "BNRItemStore.h"
 
 
 @implementation DetalViewController
 
-@synthesize item, dismissBlock;
-
-- (id)initForNewItem:(BOOL)isNew
-{
-    self = [super initWithNibName:@"DetalViewController" bundle:nil];
-    if (self) {
-        if (isNew) {
-            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                      target:self
-                                                                                      action:@selector(save:)];
-            [[self navigationItem] setRightBarButtonItem:doneItem];
-            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                        target:self
-                                                                                        action:@selector(cancel:)];
-            [[self navigationItem] setLeftBarButtonItem:cancelItem];
-        }
-    }
-    return self;
-}
-
-
-- (void)save:(id)sender
-{
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
-}
-
-
-- (void)cancel:(id)sender
-{
-    [[BNRItemStore sharedStore] removeItem:item];
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
-}
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    @throw [NSException exceptionWithName:@"Wrong initilizer" reason:@"Use initWithNewItem"  userInfo:nil];
-    return nil;
-}
-
+@synthesize item;
 
 - (void)setItem:(BNRItem *)i
 {
@@ -113,15 +73,17 @@
 }
 
 
-- (IBAction)takePicture:(id)sender {
-    if ([imagePickerPopover isPopoverVisible]){
-        [imagePickerPopover dismissPopoverAnimated:YES];
-        imagePickerPopover = nil;
-        return;
+- (IBAction)clearPhoto:(id)sender {
+    
+    NSString *currentKey = [item imageKey];
+    if (currentKey) {
+        [[BNRImageStore sharedStore] deleteImageForKey:currentKey];
+        [item setImageKey:nil];
+        [imageView setImage:nil];
     }
-    
-    
-    
+}
+
+- (IBAction)takePicture:(id)sender {
     UIImagePickerController *imagePicker =
     [[UIImagePickerController alloc] init];
     
@@ -137,15 +99,8 @@
   
     [imagePicker setDelegate:self];
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
-        [imagePickerPopover setDelegate:self];
-        [imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    
-    } else {
-        // Place image picker on the screen
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }
+    // Place image picker on the screen
+    [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
 
@@ -167,22 +122,8 @@
     CFRelease(newUniqueIDString);
     CFRelease(newUniqueID);
     
-    [noImageLabel setHidden:YES];
-    
     [imageView setImage:image];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-    {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [imagePickerPopover dismissPopoverAnimated:YES];
-        imagePickerPopover = nil;
-    }
-}
-
-
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    imagePickerPopover = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

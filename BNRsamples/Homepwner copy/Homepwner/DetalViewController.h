@@ -7,25 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DateViewController.h"
 
 @class BNRItem;
 
-@interface DetalViewController : UIViewController
-{
-
+@interface DetalViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>{
     __weak IBOutlet UITextField *nameField;
 
     __weak IBOutlet UITextField *serialNumberField;
 
     __weak IBOutlet UITextField *valueField;
     
-    
     __weak IBOutlet UILabel *dateLabel;
+    
+    __weak IBOutlet UIImageView *imageView;
 }
 
-- (IBAction)changeDate:(id)sender;
-
 @property (nonatomic, strong) BNRItem *item;
+
+
+- (IBAction)clearPhoto:(id)sender;
+
+- (IBAction)takePicture:(id)sender;
+
+- (IBAction)backgroundTapped:(id)sender;
+
 
 @end

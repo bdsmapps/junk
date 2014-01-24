@@ -44,7 +44,7 @@
 - (void)addItem:(id)sender
 {
     BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
-    int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+    int lastRow = (int)[[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
     NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow
                                          inSection:0];
     [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
@@ -87,8 +87,8 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    [[BNRItemStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
-                                        toIndex:[destinationIndexPath row]];
+    [[BNRItemStore sharedStore] moveItemAtIndex:(int)[sourceIndexPath row]
+                                        toIndex:(int)[destinationIndexPath row]];
 }
 
 
