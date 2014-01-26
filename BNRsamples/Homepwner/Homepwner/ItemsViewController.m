@@ -51,7 +51,7 @@
     }];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     [navController setModalPresentationStyle:UIModalPresentationFormSheet];
-    [navController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [navController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:navController animated:YES completion:nil];
 }
 
