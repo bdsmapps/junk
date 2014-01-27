@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPCRHost.h"
 
 @interface MPCRViewController : UIViewController
 {
     __weak IBOutlet UITextField *hostIP;
+    __weak IBOutlet UITextField *hostPort;
 }
 
 

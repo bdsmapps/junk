@@ -25,14 +25,7 @@
     return [self sharedStore];
 }
 
-- (id)init
-{
-    self = [super init];
-    if (self){
-        allItems = [[NSMutableArray alloc] init];
-    }
-    return self;
-}
+
 
 - (NSArray *)allItems
 {

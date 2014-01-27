@@ -8,6 +8,7 @@
 
 #import "MPCRAppDelegate.h"
 #import "MPCRViewController.h"
+#import "MPCRHostsViewController.h"
 
 @implementation MPCRAppDelegate
 
@@ -15,8 +16,13 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    MPCRViewController *mpcrViewController = [[MPCRViewController alloc] init];
-    [[self window] setRootViewController:mpcrViewController];
+    
+    MPCRHostsViewController *hostsController = [[MPCRHostsViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hostsController];
+    [[self window] setRootViewController:navController];
+    
+    //MPCRViewController *mpcrViewController = [[MPCRViewController alloc] init];
+    //[[self window] setRootViewController:mpcrViewController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
