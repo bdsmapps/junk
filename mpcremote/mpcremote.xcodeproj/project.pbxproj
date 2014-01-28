@@ -19,11 +19,9 @@
 		1D87B4BA1894689500C0A66B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D87B4A21894689500C0A66B /* UIKit.framework */; };
 		1D87B4C21894689500C0A66B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D87B4C01894689500C0A66B /* InfoPlist.strings */; };
 		1D87B4C41894689500C0A66B /* mpcremoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D87B4C31894689500C0A66B /* mpcremoteTests.m */; };
-		1D87B4D21894691400C0A66B /* MPCRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D87B4D01894691400C0A66B /* MPCRViewController.m */; };
-		1D87B4D31894691400C0A66B /* MPCRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D87B4D11894691400C0A66B /* MPCRViewController.xib */; };
+		840773AD1897EA9A008152C1 /* MPCRHostPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840773AC1897EA9A008152C1 /* MPCRHostPickerViewController.m */; };
+		840773B01897EE5C008152C1 /* MPCRHostStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 840773AF1897EE5C008152C1 /* MPCRHostStore.m */; };
 		84B1EADE189676D2006E7328 /* MPCRHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1EADD189676D2006E7328 /* MPCRHost.m */; };
-		84B1EAE118968615006E7328 /* MPCRHostStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1EAE018968615006E7328 /* MPCRHostStore.m */; };
-		84B1EAE418968A1D006E7328 /* MPCRHostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1EAE318968A1D006E7328 /* MPCRHostsViewController.m */; };
 		84B1EAE818969927006E7328 /* MPCRHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1EAE618969927006E7328 /* MPCRHostViewController.m */; };
 		84B1EAE918969927006E7328 /* MPCRHostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1EAE718969927006E7328 /* MPCRHostViewController.xib */; };
 		84B1EAED1896C271006E7328 /* MPCRControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1EAEB1896C271006E7328 /* MPCRControlsView.m */; };
@@ -57,15 +55,12 @@
 		1D87B4BF1894689500C0A66B /* mpcremoteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mpcremoteTests-Info.plist"; sourceTree = "<group>"; };
 		1D87B4C11894689500C0A66B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D87B4C31894689500C0A66B /* mpcremoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mpcremoteTests.m; sourceTree = "<group>"; };
-		1D87B4CF1894691400C0A66B /* MPCRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCRViewController.h; sourceTree = "<group>"; };
-		1D87B4D01894691400C0A66B /* MPCRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCRViewController.m; sourceTree = "<group>"; };
-		1D87B4D11894691400C0A66B /* MPCRViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPCRViewController.xib; sourceTree = "<group>"; };
+		840773AB1897EA9A008152C1 /* MPCRHostPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCRHostPickerViewController.h; sourceTree = "<group>"; };
+		840773AC1897EA9A008152C1 /* MPCRHostPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCRHostPickerViewController.m; sourceTree = "<group>"; };
+		840773AE1897EE5C008152C1 /* MPCRHostStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCRHostStore.h; sourceTree = "<group>"; };
+		840773AF1897EE5C008152C1 /* MPCRHostStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCRHostStore.m; sourceTree = "<group>"; };
 		84B1EADC189676D2006E7328 /* MPCRHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCRHost.h; sourceTree = "<group>"; };
 		84B1EADD189676D2006E7328 /* MPCRHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCRHost.m; sourceTree = "<group>"; };
-		84B1EADF18968615006E7328 /* MPCRHostStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPCRHostStore.h; path = ../MPCRHostStore.h; sourceTree = "<group>"; };
-		84B1EAE018968615006E7328 /* MPCRHostStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPCRHostStore.m; path = ../MPCRHostStore.m; sourceTree = "<group>"; };
-		84B1EAE218968A1D006E7328 /* MPCRHostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCRHostsViewController.h; sourceTree = "<group>"; };
-		84B1EAE318968A1D006E7328 /* MPCRHostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCRHostsViewController.m; sourceTree = "<group>"; };
 		84B1EAE518969927006E7328 /* MPCRHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCRHostViewController.h; sourceTree = "<group>"; };
 		84B1EAE618969927006E7328 /* MPCRHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCRHostViewController.m; sourceTree = "<group>"; };
 		84B1EAE718969927006E7328 /* MPCRHostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPCRHostViewController.xib; sourceTree = "<group>"; };
@@ -131,23 +126,20 @@
 		1D87B4A41894689500C0A66B /* mpcremote */ = {
 			isa = PBXGroup;
 			children = (
+				840773AE1897EE5C008152C1 /* MPCRHostStore.h */,
+				840773AF1897EE5C008152C1 /* MPCRHostStore.m */,
 				84B1EADC189676D2006E7328 /* MPCRHost.h */,
 				84B1EADD189676D2006E7328 /* MPCRHost.m */,
-				84B1EADF18968615006E7328 /* MPCRHostStore.h */,
-				84B1EAE018968615006E7328 /* MPCRHostStore.m */,
-				84B1EAE218968A1D006E7328 /* MPCRHostsViewController.h */,
-				84B1EAE318968A1D006E7328 /* MPCRHostsViewController.m */,
 				84B1EAEA1896C271006E7328 /* MPCRControlsView.h */,
 				84B1EAEB1896C271006E7328 /* MPCRControlsView.m */,
 				84B1EAEC1896C271006E7328 /* MPCRControlsView.xib */,
 				84B1EAE518969927006E7328 /* MPCRHostViewController.h */,
 				84B1EAE618969927006E7328 /* MPCRHostViewController.m */,
 				84B1EAE718969927006E7328 /* MPCRHostViewController.xib */,
+				840773AB1897EA9A008152C1 /* MPCRHostPickerViewController.h */,
+				840773AC1897EA9A008152C1 /* MPCRHostPickerViewController.m */,
 				1D87B4AD1894689500C0A66B /* MPCRAppDelegate.h */,
 				1D87B4AE1894689500C0A66B /* MPCRAppDelegate.m */,
-				1D87B4CF1894691400C0A66B /* MPCRViewController.h */,
-				1D87B4D01894691400C0A66B /* MPCRViewController.m */,
-				1D87B4D11894691400C0A66B /* MPCRViewController.xib */,
 				1D87B4B01894689500C0A66B /* Images.xcassets */,
 				1D87B4A51894689500C0A66B /* Supporting Files */,
 			);
@@ -259,7 +251,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D87B4D31894691400C0A66B /* MPCRViewController.xib in Resources */,
 				84B1EAEE1896C271006E7328 /* MPCRControlsView.xib in Resources */,
 				1D87B4A91894689500C0A66B /* InfoPlist.strings in Resources */,
 				84B1EAE918969927006E7328 /* MPCRHostViewController.xib in Resources */,
@@ -285,11 +276,10 @@
 				84B1EAE818969927006E7328 /* MPCRHostViewController.m in Sources */,
 				1D87B4AF1894689500C0A66B /* MPCRAppDelegate.m in Sources */,
 				84B1EADE189676D2006E7328 /* MPCRHost.m in Sources */,
-				84B1EAE418968A1D006E7328 /* MPCRHostsViewController.m in Sources */,
-				84B1EAE118968615006E7328 /* MPCRHostStore.m in Sources */,
+				840773B01897EE5C008152C1 /* MPCRHostStore.m in Sources */,
 				1D87B4AB1894689500C0A66B /* main.m in Sources */,
 				84B1EAED1896C271006E7328 /* MPCRControlsView.m in Sources */,
-				1D87B4D21894691400C0A66B /* MPCRViewController.m in Sources */,
+				840773AD1897EA9A008152C1 /* MPCRHostPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

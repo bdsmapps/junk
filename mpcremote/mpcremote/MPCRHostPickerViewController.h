@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPCRHostViewController.h"
 
-@interface MPCRHostPickerViewController : UITableViewController
+@interface MPCRHostPickerViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
+- (IBAction)addHost:(id)sender;
 
 @end
+

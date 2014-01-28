@@ -7,8 +7,7 @@
 //
 
 #import "MPCRAppDelegate.h"
-#import "MPCRViewController.h"
-#import "MPCRHostsViewController.h"
+#import "MPCRHostPickerViewController.h"
 
 @implementation MPCRAppDelegate
 
@@ -17,8 +16,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    MPCRHostsViewController *hostsController = [[MPCRHostsViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hostsController];
+    MPCRHostPickerViewController *hostPicker = [[MPCRHostPickerViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hostPicker];
     [[self window] setRootViewController:navController];
     
     //MPCRViewController *mpcrViewController = [[MPCRViewController alloc] init];

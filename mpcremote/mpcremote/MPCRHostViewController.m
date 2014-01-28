@@ -111,8 +111,23 @@
 }
 
 
-
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    int allowedLength;
+    switch(textField.tag) {
+        case 1:
+            allowedLength = 3;      // triggered for input fields with tag = 1
+            break;
+        default:
+            allowedLength = 255;   // length default when no tag (=0) value =255
+            break;
+    }
+    
+    if (textField.text.length >= allowedLength && range.length == 0) {
+        return NO; // Change not allowed
+    } else {
+        return YES; // Change allowed
+    }
+}
 
 
 @end

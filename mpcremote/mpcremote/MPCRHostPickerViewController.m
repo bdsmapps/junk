@@ -7,114 +7,118 @@
 //
 
 #import "MPCRHostPickerViewController.h"
-
-@interface MPCRHostPickerViewController ()
-
-@end
+#import "MPCRHost.h"
+#import "MPCRHostStore.h"
+#import "MPCRHostViewController.h"
+#import "MPCRControlsView.h"
 
 @implementation MPCRHostPickerViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)init
 {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        // Custom initialization
+        UINavigationItem *n = [self navigationItem];
+        [n setTitle:@"MPC Hosts"];
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                             target:self
+                                                                             action:@selector(addHost:)];
+        [[self navigationItem] setRightBarButtonItem:bbi];
+        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
     }
     return self;
 }
 
-- (void)viewDidLoad
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    return [self init];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
+    [[self tableView] reloadData];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)addHost:(id)sender
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    MPCRHost *newHost = [[MPCRHostStore sharedStore] createDefaultHost];
+    MPCRHostViewController *hostController = [[MPCRHostViewController alloc]initForNewHost:YES];
+    [hostController setHost:newHost];
+    [hostController setDismissBlock:^{
+        [[self tableView] reloadData];
+    }];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hostController];
+    [navController setModalPresentationStyle:UIModalPresentationFormSheet];
+    [navController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [[[MPCRHostStore sharedStore] allHosts] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:@"UITableViewCell"];
+    }
     
-    // Configure the cell...
+    MPCRHost *host = [[[MPCRHostStore sharedStore] allHosts] objectAtIndex:[indexPath row]];
+    
+    NSString *str = [NSString stringWithFormat:@"%@ (%@:%@)", [host hostName], [host hostIPString], [host hostPort]];
+    
+    [[cell textLabel] setText:str];
+    [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        MPCRHostStore *hs = [MPCRHostStore sharedStore];
+        NSArray *hosts = [hs allHosts];
+        MPCRHost *host = [hosts objectAtIndex:[indexPath row]];
+        [hs removeHost:host];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
+    [[MPCRHostStore sharedStore] moveItemAtIndex:(int)[sourceIndexPath row]
+                                         toIndex:(int)[destinationIndexPath row]];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    MPCRControlsView *controlsView = [[MPCRControlsView alloc] init];
+    
+    NSArray *hosts = [[MPCRHostStore sharedStore] allHosts];
+    MPCRHost *selectedHost = [hosts objectAtIndex:[indexPath row]];
+    [controlsView setHost: selectedHost];
+    [[self navigationController] pushViewController:controlsView animated:YES];
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    MPCRHostViewController *hostController = [[MPCRHostViewController alloc] initForNewHost:NO];
+    
+    NSArray *hosts = [[MPCRHostStore sharedStore] allHosts];
+    MPCRHost *selectedHost = [hosts objectAtIndex:[indexPath row]];
+    [hostController setHost: selectedHost];
+    
+    [[self navigationController] pushViewController:hostController animated:YES];
+    
+    
 }
 
- */
+
 
 @end
+
