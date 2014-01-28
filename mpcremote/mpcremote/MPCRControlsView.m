@@ -12,6 +12,12 @@
 @implementation MPCRControlsView
 @synthesize host;
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+}
+
 
 - (void)remoteCommand:(id)sender
 {

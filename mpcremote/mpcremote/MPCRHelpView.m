@@ -7,32 +7,29 @@
 //
 
 #import "MPCRHelpView.h"
-
-@interface MPCRHelpView ()
-
-@end
+#import "MPCRHostPickerViewController.h"
 
 @implementation MPCRHelpView
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
+- (void)viewWillAppear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super viewWillAppear:animated];
+    [self setTitle:@"Help"];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)dismissHelp:(id)sender {
+    
+    MPCRHostPickerViewController *hostPicker = [[MPCRHostPickerViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hostPicker];
+    [navController setModalPresentationStyle:UIModalPresentationFormSheet];
+    [navController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:navController animated:YES completion:nil];
 }
-
 @end

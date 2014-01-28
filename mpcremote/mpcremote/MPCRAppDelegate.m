@@ -8,6 +8,8 @@
 
 #import "MPCRAppDelegate.h"
 #import "MPCRHostPickerViewController.h"
+#import "MPCRHelpView.h"
+#import "MPCRHostStore.h"
 
 @implementation MPCRAppDelegate
 
@@ -15,13 +17,20 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    
-    MPCRHostPickerViewController *hostPicker = [[MPCRHostPickerViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hostPicker];
-    [[self window] setRootViewController:navController];
-    
-    //MPCRViewController *mpcrViewController = [[MPCRViewController alloc] init];
-    //[[self window] setRootViewController:mpcrViewController];
+    //Check for hosts to pick the view initial view controller
+    int hosts = [[[MPCRHostStore sharedStore] allHosts] count];
+    if (hosts <= 0) {
+        NSLog(@"no hosts");
+        MPCRHelpView *helpView = [[MPCRHelpView alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:helpView];
+        [[self window] setRootViewController:navController];
+    } else {
+        NSLog(@"at least one host");
+        MPCRHostPickerViewController *hostPicker = [[MPCRHostPickerViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hostPicker];
+        [[self window] setRootViewController:navController];
+    }
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

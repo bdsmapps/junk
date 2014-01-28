@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface MPCRHelpView : UIViewController
+{
+}
+
+
+
+- (IBAction)dismissHelp:(id)sender;
+
 
 @end

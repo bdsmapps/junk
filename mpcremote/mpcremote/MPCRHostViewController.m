@@ -9,6 +9,7 @@
 #import "MPCRHostViewController.h"
 #import "MPCRHostStore.h"
 #import "MPCRHost.h"
+#import "MPCRHelpView.h"
 
 @implementation MPCRHostViewController
 
@@ -30,6 +31,15 @@
         }
     }
     return self;
+}
+
+- (IBAction)callHelpPage:(id)sender {
+    
+    MPCRHelpView *helpView = [[MPCRHelpView alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:helpView];
+    [navController setModalPresentationStyle:UIModalPresentationFormSheet];
+    [navController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)save:(id)sender
@@ -128,6 +138,7 @@
         return YES; // Change allowed
     }
 }
+
 
 
 @end

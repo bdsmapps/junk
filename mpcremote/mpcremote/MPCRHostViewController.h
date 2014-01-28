@@ -21,6 +21,7 @@
 }
 
 - (id)initForNewHost:(BOOL)isNew;
+- (IBAction)callHelpPage:(id)sender;
 
 @property (nonatomic, strong) MPCRHost *host;
 @property (nonatomic, copy) void (^dismissBlock)(void);
