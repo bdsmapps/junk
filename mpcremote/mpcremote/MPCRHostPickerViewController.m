@@ -11,6 +11,7 @@
 #import "MPCRHostStore.h"
 #import "MPCRHostViewController.h"
 #import "MPCRControlsView.h"
+#import "MPCRHelpView.h"
 
 @implementation MPCRHostPickerViewController
 
@@ -43,8 +44,22 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    BOOL didViewHelp = NO;
+    int hosts = [[[MPCRHostStore sharedStore] allHosts] count];
+    if (!didViewHelp && hosts <= 0) {
+        NSLog(@"Showing help");
+        MPCRHelpView *helpView = [[MPCRHelpView alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:helpView];
+        [navController setModalPresentationStyle:UIModalPresentationFormSheet];
+        [navController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [self presentViewController:navController animated:NO completion:nil];
+        didViewHelp = YES;
+     }
+    
     [[self tableView] reloadData];
 }
+
 
 - (void)addHost:(id)sender
 {

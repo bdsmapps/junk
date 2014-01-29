@@ -38,8 +38,12 @@
     MPCRHelpView *helpView = [[MPCRHelpView alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:helpView];
     [navController setModalPresentationStyle:UIModalPresentationFormSheet];
-    [navController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [navController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (IBAction)backgroundTapped:(id)sender {
+    [[self view] endEditing:YES];
 }
 
 - (void)save:(id)sender
@@ -115,10 +119,10 @@
 }
 
 
-- (void)backgroundTapped:(id)sender
+/*- (void)backgroundTapped:(id)sender
 {
     [[self view] endEditing:YES];
-}
+}*/
 
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {

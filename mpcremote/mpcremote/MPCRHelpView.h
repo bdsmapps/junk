@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface MPCRHelpView : UIViewController
+
 {
 }
 
+@property (nonatomic, copy) void (^dismissBlock)(void);
 
-
-- (IBAction)dismissHelp:(id)sender;
-
+- (IBAction)backgroundTapped:(id)sender;
 
 @end

@@ -16,6 +16,28 @@
 {
     [super viewDidLoad];
     [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self
+                                                                                            action:@selector(swipeHandler:)];
+    [gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    
+    
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+    //NSString *currentVolume = [NSString stringWithFormat:@"%.0f", volume.value*100];
+    [volumeLabel setText:[host currentVolume]];
+    //NSLog(@"%@",[host currentVolume]);
+}
+
+- (IBAction)swipeHandler:(UISwipeGestureRecognizer *)sender{
+    NSLog(@"SWIPE");
+    [[self navigationController] popViewControllerAnimated:YES];
+   
 }
 
 
@@ -25,5 +47,15 @@
     NSLog(@"command: %d", [sender tag]);
     NSLog(@"host: %@", [host hostIPString]);
 }
+
+
+- (IBAction)volumeChanged:(id)sender {
+    NSLog(@"vol = %.2f", volume.value);
+    NSString *currentVolume = [NSString stringWithFormat:@"%.0f", volume.value*100];
+    [volumeLabel setText:currentVolume];
+    [host volumeChangeToPercent:currentVolume];
+}
+
+
 
 @end

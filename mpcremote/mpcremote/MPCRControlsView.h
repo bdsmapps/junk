@@ -11,10 +11,15 @@
 
 @interface MPCRControlsView : UIViewController
 {
+    __weak IBOutlet UISlider *volume;
+    __weak IBOutlet UILabel *volumeLabel;
 }
 
 @property (nonatomic, strong) MPCRHost *host;
 
 - (IBAction)remoteCommand:(id)sender;
+
+
+
 
 @end

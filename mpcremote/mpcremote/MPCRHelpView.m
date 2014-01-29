@@ -10,11 +10,12 @@
 #import "MPCRHostPickerViewController.h"
 
 @implementation MPCRHelpView
-
+@synthesize dismissBlock;
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
     [self setTitle:@"Help"];
 }
 
@@ -24,12 +25,13 @@
     [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
 }
 
-- (IBAction)dismissHelp:(id)sender {
-    
-    MPCRHostPickerViewController *hostPicker = [[MPCRHostPickerViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hostPicker];
-    [navController setModalPresentationStyle:UIModalPresentationFormSheet];
-    [navController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-    [self presentViewController:navController animated:YES completion:nil];
+
+- (IBAction)backgroundTapped:(id)sender {
+    NSLog(@"tap");
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
 }
+
+
+
+
 @end

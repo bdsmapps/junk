@@ -24,5 +24,7 @@
               hostPort:(NSString *)port;
 
 - (void)remoteCommand:(NSString *)command;
+- (void)volumeChangeToPercent:(NSString *)percent;
+- (NSString *)currentVolume;
 
 @end
