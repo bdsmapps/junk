@@ -26,5 +26,7 @@
 - (void)remoteCommand:(NSString *)command;
 - (void)volumeChangeToPercent:(NSString *)percent;
 - (NSString *)currentVolume;
+- (BOOL)isAvailable;
+
 
 @end

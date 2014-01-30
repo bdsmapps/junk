@@ -27,7 +27,6 @@
 
 
 - (IBAction)backgroundTapped:(id)sender {
-    NSLog(@"tap");
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
 }
 

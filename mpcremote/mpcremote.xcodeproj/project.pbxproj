@@ -23,6 +23,7 @@
 		840773B01897EE5C008152C1 /* MPCRHostStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 840773AF1897EE5C008152C1 /* MPCRHostStore.m */; };
 		840773B4189811E9008152C1 /* MPCRHelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840773B2189811E9008152C1 /* MPCRHelpView.m */; };
 		840773B5189811E9008152C1 /* MPCRHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840773B3189811E9008152C1 /* MPCRHelpView.xib */; };
+		846B6398189A86A000015861 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846B6397189A86A000015861 /* CFNetwork.framework */; };
 		84ACDDCF18996E1E00C81BE6 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ACDDCC18996E1E00C81BE6 /* HTMLNode.m */; };
 		84ACDDD018996E1E00C81BE6 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ACDDCE18996E1E00C81BE6 /* HTMLParser.m */; };
 		84ACDDD41899707C00C81BE6 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ACDDD218996E7600C81BE6 /* libxml2.dylib */; };
@@ -67,6 +68,7 @@
 		840773B1189811E9008152C1 /* MPCRHelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCRHelpView.h; sourceTree = "<group>"; };
 		840773B2189811E9008152C1 /* MPCRHelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCRHelpView.m; sourceTree = "<group>"; };
 		840773B3189811E9008152C1 /* MPCRHelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPCRHelpView.xib; sourceTree = "<group>"; };
+		846B6397189A86A000015861 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		84ACDDCB18996E1E00C81BE6 /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMLNode.h; path = HTMLparser/HTMLNode.h; sourceTree = "<group>"; };
 		84ACDDCC18996E1E00C81BE6 /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMLNode.m; path = HTMLparser/HTMLNode.m; sourceTree = "<group>"; };
 		84ACDDCD18996E1E00C81BE6 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMLParser.h; path = HTMLparser/HTMLParser.h; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846B6398189A86A000015861 /* CFNetwork.framework in Frameworks */,
 				84ACDDD41899707C00C81BE6 /* libxml2.dylib in Frameworks */,
 				1D87B4A11894689500C0A66B /* CoreGraphics.framework in Frameworks */,
 				1D87B4A31894689500C0A66B /* UIKit.framework in Frameworks */,
@@ -129,6 +132,7 @@
 		1D87B49D1894689500C0A66B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				846B6397189A86A000015861 /* CFNetwork.framework */,
 				84ACDDD218996E7600C81BE6 /* libxml2.dylib */,
 				1D87B49E1894689500C0A66B /* Foundation.framework */,
 				1D87B4A01894689500C0A66B /* CoreGraphics.framework */,

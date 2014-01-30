@@ -48,7 +48,6 @@
     BOOL didViewHelp = NO;
     int hosts = [[[MPCRHostStore sharedStore] allHosts] count];
     if (!didViewHelp && hosts <= 0) {
-        NSLog(@"Showing help");
         MPCRHelpView *helpView = [[MPCRHelpView alloc] init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:helpView];
         [navController setModalPresentationStyle:UIModalPresentationFormSheet];
@@ -94,6 +93,7 @@
     
     [[cell textLabel] setText:str];
     [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+
     
     return cell;
 }
@@ -123,8 +123,13 @@
     NSArray *hosts = [[MPCRHostStore sharedStore] allHosts];
     MPCRHost *selectedHost = [hosts objectAtIndex:[indexPath row]];
     [controlsView setHost: selectedHost];
+   
+    
     [[self navigationController] pushViewController:controlsView animated:YES];
 }
+
+
+
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
@@ -133,7 +138,6 @@
     NSArray *hosts = [[MPCRHostStore sharedStore] allHosts];
     MPCRHost *selectedHost = [hosts objectAtIndex:[indexPath row]];
     [hostController setHost: selectedHost];
-    
     [[self navigationController] pushViewController:hostController animated:YES];
     
     

@@ -81,6 +81,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
     [hostName setText:[host hostName]];
     [hostPort setText:[host hostPort]];
     if ([host hostIPp1]) {

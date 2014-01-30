@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MPCRControlsView">
             <connections>
+                <outlet property="loadIndicator" destination="JNy-fl-W2V" id="ukl-GJ-PZj"/>
+                <outlet property="pauseButton" destination="TkE-Zs-aOb" id="Eqb-YF-onL"/>
+                <outlet property="playButton" destination="YNQ-qj-mIl" id="TXS-3J-0WG"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="volume" destination="AdI-rY-WC0" id="PDN-nI-ZCe"/>
                 <outlet property="volumeLabel" destination="gty-yr-jvK" id="pin-wM-iB5"/>
@@ -51,17 +54,21 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gty-yr-jvK">
-                    <rect key="frame" x="83" y="537" width="34" height="21"/>
+                    <rect key="frame" x="76" y="537" width="34" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb7-Wy-OHW">
-                    <rect key="frame" x="119" y="537" width="42" height="21"/>
+                    <rect key="frame" x="112" y="537" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JNy-fl-W2V">
+                    <rect key="frame" x="150" y="376" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
