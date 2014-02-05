@@ -22,6 +22,7 @@
     return newHost;
 }
 
+
 - (id)initWithHostName:(NSString *)name
                 hostIP:(NSString *)ip
               hostPort:(NSString *)port
@@ -41,27 +42,12 @@
     return self;
 }
 
+
 - (id)init
 {
     return [self initWithHostName:@"MPC host"
                            hostIP:@""
                          hostPort:@""];
-}
-
-- (BOOL)isAvailable
-{
-    
-    
-    NSString *hostURL = [NSString stringWithFormat:@"http://%@:%@/variables.html", hostIPString, hostPort];
-
-
-    NSURL *url = [NSURL URLWithString:hostURL];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    if ([data length] <= 0) {
-        return NO;
-    }
-    
-    return YES;
 }
 
 
@@ -83,7 +69,6 @@
 
 - (void)volumeChangeToPercent:(NSString *)percent
 {
-
     NSString *bodyData = [NSString stringWithFormat:@"wm_command=-2&volume=%@", percent];
     NSString *hostURL = [NSString stringWithFormat:@"http://%@:%@/command.html", hostIPString, hostPort];
     NSLog(@"body: %@", bodyData);
@@ -95,8 +80,6 @@
     
     NSURLConnection *conn = [[NSURLConnection alloc]initWithRequest:postRequest delegate:self];
     conn = nil;
-
-
 }
 
 - (NSString *)currentVolume
@@ -105,7 +88,6 @@
     NSURL *url = [NSURL URLWithString:hostURL];
     NSData *data = [NSData dataWithContentsOfURL:url];
     NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
     
     //parsing response for current volume
     NSError *error = nil;
@@ -133,7 +115,6 @@
     //return current volume or default value
     NSLog(@"return vol: %@", currentVolume);
     return currentVolume;
-
 }
 
 
