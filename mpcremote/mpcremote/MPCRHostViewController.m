@@ -85,16 +85,16 @@
     [hostName setText:[host hostName]];
     [hostPort setText:[host hostPort]];
     if ([host hostIPp1]) {
-        [hostIPp1 setText:[NSString stringWithFormat:@"%d",[host hostIPp1]]];
+        [hostIPp1 setText:[host hostIPp1]];
     }
     if ([host hostIPp2]) {
-        [hostIPp2 setText:[NSString stringWithFormat:@"%d",[host hostIPp2]]];
+        [hostIPp2 setText:[host hostIPp2]];
     }
     if ([host hostIPp3]) {
-        [hostIPp3 setText:[NSString stringWithFormat:@"%d",[host hostIPp3]]];
+        [hostIPp3 setText:[host hostIPp3]];
     }
     if ([host hostIPp4]) {
-        [hostIPp4 setText:[NSString stringWithFormat:@"%d",[host hostIPp4]]];
+        [hostIPp4 setText:[host hostIPp4]];
     }
 }
 
@@ -104,12 +104,13 @@
     [[self view] endEditing:YES];
     NSString *ip = [NSString stringWithFormat:@"%d.%d.%d.%d", [hostIPp1 text].intValue, [hostIPp2 text].intValue, [hostIPp3 text].intValue, [hostIPp4 text].intValue];
     [host setHostIPString:ip];
-    [host setHostIPp1:[hostIPp1 text].intValue];
-    [host setHostIPp2:[hostIPp2 text].intValue];
-    [host setHostIPp3:[hostIPp3 text].intValue];
-    [host setHostIPp4:[hostIPp4 text].intValue];
+    [host setHostIPp1:[hostIPp1 text]];
+    [host setHostIPp2:[hostIPp2 text]];
+    [host setHostIPp3:[hostIPp3 text]];
+    [host setHostIPp4:[hostIPp4 text]];
     [host setHostPort:[hostPort text]];
     [host setHostName:[hostName text]];
+    [[MPCRHostStore sharedStore] saveToFile];
 }
 
 
@@ -119,11 +120,6 @@
     return YES;
 }
 
-
-/*- (void)backgroundTapped:(id)sender
-{
-    [[self view] endEditing:YES];
-}*/
 
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {

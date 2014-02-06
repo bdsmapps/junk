@@ -8,6 +8,7 @@
 
 #import "MPCRHelpView.h"
 #import "MPCRHostPickerViewController.h"
+#import "MPCRHostStore.h"
 
 @implementation MPCRHelpView
 @synthesize dismissBlock;
@@ -29,6 +30,8 @@
 - (IBAction)backgroundTapped:(id)sender {
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
 }
+
+
 
 
 

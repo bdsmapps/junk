@@ -12,13 +12,17 @@
 
 
 @implementation MPCRHost
-@synthesize hostIPString, hostPort;
+@synthesize hostName, hostIPString, hostPort, hostIPp1, hostIPp2, hostIPp3, hostIPp4;
 
 + (id)defaultHost
 {
     MPCRHost *newHost = [[self alloc] initWithHostName:@"My PC"
-                                                hostIP:@""
+                                                hostIP:@"0.0.0.0"
                                               hostPort:@"13579"];
+    [newHost setHostIPp1:@"0"];
+    [newHost setHostIPp2:@"0"];
+    [newHost setHostIPp3:@"0"];
+    [newHost setHostIPp4:@"0"];
     return newHost;
 }
 

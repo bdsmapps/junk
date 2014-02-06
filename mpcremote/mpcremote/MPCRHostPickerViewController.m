@@ -27,11 +27,6 @@
         [[self navigationItem] setRightBarButtonItem:bbi];
         [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
         
-
-        
-        //adding toolbar
-        
-        
     }
     return self;
 }

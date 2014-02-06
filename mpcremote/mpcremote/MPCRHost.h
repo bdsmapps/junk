@@ -11,10 +11,10 @@
 @interface MPCRHost : NSObject
 
 @property (nonatomic, copy) NSString *hostName;
-@property (nonatomic) int hostIPp1;
-@property (nonatomic) int hostIPp2;
-@property (nonatomic) int hostIPp3;
-@property (nonatomic) int hostIPp4;
+@property (nonatomic, copy) NSString *hostIPp1;
+@property (nonatomic, copy) NSString *hostIPp2;
+@property (nonatomic, copy) NSString *hostIPp3;
+@property (nonatomic, copy) NSString *hostIPp4;
 @property (nonatomic, copy) NSString *hostIPString;
 @property (nonatomic, copy) NSString *hostPort;
 

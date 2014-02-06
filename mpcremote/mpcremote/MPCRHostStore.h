@@ -22,5 +22,8 @@
 - (void)moveItemAtIndex:(int)from
                 toIndex:(int)to;
 
+- (void)loadFromFile;
+- (void)saveToFile;
+
 
 @end
